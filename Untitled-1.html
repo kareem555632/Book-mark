@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book mark</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600&family=Amatic+SC:wght@400;700&family=Libre+Franklin:wght@400;500;900&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- font awsone -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- css file -->
+<link rel="stylesheet" href="css/index-style.css">
+<!-- css media -->
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <main>
+        <!-- ===== Start Box Model Div ===== -->
+        <div class="box-info position-fixed start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none">
+          <div class="box-conent bg-white p-4 rounded-2 shadow-lg">
+            <header class="box-header w-100 d-flex justify-content-between align-items-center mb-3">
+              <div class="circles-div d-flex">
+                <span class="rounded-circle me-2"></span>
+                <span class="rounded-circle me-2"></span>
+                <span class="rounded-circle me-2"></span>
+              </div>
+              <button class="btn border-0" id="closeBtn">
+                <i class="fa-solid fa-xmark close fs-3"></i>
+              </button>
+            </header>
+            <p class="m-0 pb-2">Please follow the rules below :</p>
+            <ol class="rules list-unstyled m-0">
+              <li>
+                <i class="fa-regular fa-circle-right p-2"></i>Site name must
+                contain at least 4 characters
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-right p-2"></i>Site URL must be a
+                valid one
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-right p-2"></i>Select site category
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!-- ===== End Box Model Div ===== -->
+        <!-- ===== Start Form Section ===== -->
+        <section>
+          <div class="container">
+            <div class="main-title-div p-5 d-flex justify-content-center">
+              <h1 class="main-title text-capitalize">bookmarker</h1>
+            </div>
+            <div class="sub-title-div p-4 d-flex justify-content-center">
+              <h2 class="sub-title">
+                <i class="fa-solid fa-bookmark"></i>
+                Bookmark your favorite sites
+                <i class="fa-solid fa-bookmark"></i>
+              </h2>
+            </div>
+            <form id="myForm" class="m-auto">
+              <div class="mb-3">
+                <label for="siteName" class="form-label text-capitalize fw-semibold">
+                  <i class="fa-solid fa-book-bookmark pe-2"></i>
+                  Site Name</label>
+                <input type="text" class="form-control" id="siteName" placeholder="Name" oninput="validationName()">
+                <p id="existName" class="text-bg-danger" style="display: none;">
+                  <i class="fa-regular fa-circle-right p-2"></i>site name is
+                  already exist
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="siteUrl" class="form-label text-capitalize fw-semibold">
+                  <i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                <input type="text" class="form-control" id="siteUrl" placeholder="URL" oninput="validationURL()">
+                <p id="existURL" class="text-bg-danger" style="display: none;">
+                  <i class="fa-regular fa-circle-right p-2"></i>site URL is
+                  already exist
+                </p>
+              </div>
+              <div class="py-4 d-flex justify-content-center align-items-center">
+                <label for="siteCategory" class="form-label text-capitalize me-4 mb-0 fw-semibold"><i class="fa-solid fa-layer-group me-2"></i>site
+                  category</label>
+                <select id="siteCategory" class="form-select w-50">
+                  <option value="Select Category">Select Category</option>
+                  <option value="AI">AI</option>
+                  <option value="CS">CS</option>
+                  <option value="Front-End">Front-End</option>
+                  <option value="English">English</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="News">News</option>
+                  <option value="Series &amp; Movies">Series &amp; Movies</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <div class="py-4 d-flex justify-content-between flex-lg-row special-div">
+                <div>
+                  <button type="button" id="addBtn" class="btn btn-danger text-capitalize py-2 px-5">
+                    submit
+                  </button>
+                  <button type="button" id="updateBtn" class="updateMode btn btn-warning text-capitalize d-none py-2 px-5">
+                    update
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <label for="filterCategory" class="me-3 fw-semibold d-flex align-items-center">
+                      <i class="fa-solid fa-filter me-2"></i>Filter:
+                    </label>
+                    <select name="" id="filterCategory" class="form-select" onchange="filterSitesByCategory(this.value)">
+                      <option value="1">All</option>
+                      <option value="2">AI</option>
+                      <option value="3">CS</option>
+                      <option value="4">Front-End</option>
+                      <option value="5">English</option>
+                      <option value="6">Social Media</option>
+                      <option value="7">News</option>
+                      <option value="8">Series &amp; Movies</option>
+                      <option value="9">Others</option>
+                    </select>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <label for="searchInput" class="me-3 fw-semibold d-flex align-items-center">
+                      <i class="fa-solid fa-magnifying-glass me-2"></i>Search:
+                    </label>
+                    <input oninput="search(this.value )" type="search" class="form-control" id="searchInput" placeholder="Search By Name ...">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="main-title-div"></div>
+          </div>
+        </section>
+        <!-- ===== End Form Section ===== -->
+        <!-- ===== Start Table Section ===== -->
+        <section class="p-5 table-section">
+          <div class="container">
+            <table id="example" class="table text-center table-responsive">
+              <thead>
+                <tr>
+                  <th>Index</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Visit</th>
+                  <th>Delete</th>
+                  <th>Update</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </section>
+        <!-- ===== End Table Section ===== -->
+      </main>
+    
+    
+    <!-- Bootstrap JavaScript  -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- =============> start java script -->
+    <script src="js/index.js"></script>
+    <!-- ===================================> end java script -->
+</body>
+</html>

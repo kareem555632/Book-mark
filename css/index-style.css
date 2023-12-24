@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --minColor: #1C1C1C ;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+}
+
+/* ======= Google Fonts  ======== */
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap");
+
+/* ===== Start General CSS  ===== */
+body {
+  font-family: "PT Sans Caption", sans-serif;
+}
+::selection {
+  background-color: rgba(254, 194, 96, 0.75);
+  color: #352e28;
+}
+main {
+  min-height: 100vh;
+  background-color: #f7ecde;
+}
+::-webkit-scrollbar {
+  width: 20px;
+  background-color: #f7ecde;
+  border-left: 2px solid #352e28;
+  box-shadow: 0px 0px 21px 0px #0003 inset;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fec260;
+  box-shadow: 0px 0px 10px 0px #eeeeee8c inset;
+  border-radius: 100vh;
+  -webkit-border-radius: 100vh;
+  -moz-border-radius: 100vh;
+  -ms-border-radius: 100vh;
+  -o-border-radius: 100vh;
+}
+button:active,
+button:visited,
+button:active a,
+button:visited a {
+  background-color: transparent !important;
+  color: #212529 !important;
+}
+/* ====== End General CSS  ====== */
+/* ====== Start Box Model  ====== */
+.box-info {
+  background-color: #0007;
+}
+.box-conent {
+  width: 500px;
+  z-index: 10;
+}
+.circles-div span {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.circles-div span:nth-child(1) {
+  background-color: #f15f5d;
+}
+.circles-div span:nth-child(2) {
+  background-color: #febe2e;
+}
+.circles-div span:nth-child(3) {
+  background-color: #4db748;
+}
+.box-conent p {
+  font-family: "Bree Serif", serif;
+  font-size: 21px;
+  line-height: 1.3;
+  color: #352e28;
+}
+.rules li {
+  font-size: 18px;
+  padding-top: 10px;
+}
+.rules i {
+  color: #bb4120;
+}
+
+/* ======= End Box Model  ======= */
+/* ===== Start Form Section ===== */
+.main-title-div {
+  border-bottom: 1px solid #352e28;
+}
+.main-title {
+  font-size: 50px;
+  font-family: "Pacifico", cursive;
+  color: #352e28;
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  width: fit-content;
+}
+.main-title::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  left: 0;
+  bottom: 5px;
+  background-color: #fec260;
+  z-index: -1;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+}
+.main-title:hover::before {
+  height: 50%;
+}
+.sub-title {
+  font-family: "Righteous", cursive;
+  font-size: 25px;
+  background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+form {
+  max-width: 97.5%;
+}
+.form-control:focus,
+.form-select:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #d99c39;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #fec26055;
+}
+option {
+  background-color: #f7ecde;
+}
+.special-div > div:first-child {
+  min-width: calc(100% / 3);
+}
+.special-div > div:last-child {
+  min-width: calc((100% / 3) * 2);
+}
+/* ====== End Form Section ======= */
+/* ===== Start Table Section ===== */
+table th {
+  width: calc(100% / 6) !important;
+  padding-block: 10px !important;
+  background-color: #352e28 !important;
+  color: #fff !important;
+  text-align: center !important;
+  border: 1px solid #52463d !important;
+}
+tbody tr {
+  vertical-align: middle;
+}
+table td {
+  background-color: transparent !important;
+  border: 1px solid #352e28 !important;
+}
+  button > a {
+    padding: 6px 10px !important;
+  }
+/* ====== End Table Section ======= */
